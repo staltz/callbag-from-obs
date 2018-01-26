@@ -15,10 +15,10 @@ const observe = require('callbag-observe');
 
 const source = fromObs(Rx.Observable.interval(1000).take(4));
 
-source(0, observe(x => console.log(x)); // 0
-                                        // 1
-                                        // 2
-                                        // 3
+observe(x => console.log(x)(source); // 0
+                                     // 1
+                                     // 2
+                                     // 3
 ```
 
 Convert anything that has the `.subscribe` method:
@@ -36,9 +36,9 @@ const subscribable = {
 
 const source = fromObs(subscribable);
 
-source(0, observe(x => console.log(x))); // 0
-                                         // 1
-                                         // 2
-                                         // 3
-                                         // ...
+observe(x => console.log(x))(source); // 0
+                                      // 1
+                                      // 2
+                                      // 3
+                                      // ...
 ```
