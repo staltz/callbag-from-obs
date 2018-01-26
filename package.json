@@ -2,6 +2,10 @@
   "name": "callbag-from-obs",
   "version": "1.0.0",
   "description": "Convert an observable to a callbag listenable source",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staltz/callbag-from-obs.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "tape test.js"
