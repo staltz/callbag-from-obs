@@ -36,9 +36,9 @@ const subscribable = {
 
 const source = fromObs(subscribable);
 
-source(0, observe(x => console.log(x)); // 0
-                                        // 1
-                                        // 2
-                                        // 3
-                                        // ...
+source(0, observe(x => console.log(x))); // 0
+                                         // 1
+                                         // 2
+                                         // 3
+                                         // ...
 ```
