@@ -1,5 +1,5 @@
 const test = require('tape');
-const fromObs = require('./index');
+const fromObs = require('./readme');
 
 test('it converts an async infinite subscribable', (t) => {
   t.plan(13);
