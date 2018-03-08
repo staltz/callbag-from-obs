@@ -1,31 +1,31 @@
 /**
  * callbag-from-obs
  * --------------
- * 
+ *
  * Convert an observable (or subscribable) to a callbag listenable source.
- * 
+ *
  * `npm install callbag-from-obs`
- * 
+ *
  * Example:
- * 
+ *
  * Convert an RxJS Observable:
- * 
+ *
  *     const Rx = require('rxjs');
  *     const fromObs = require('callbag-from-obs');
  *     const observe = require('callbag-observe');
  *
  *     const source = fromObs(Rx.Observable.interval(1000).take(4));
- *     
+ *
  *     observe(x => console.log(x)(source); // 0
  *                                          // 1
  *                                          // 2
  *                                          // 3
- * 
+ *
  * Convert anything that has the `.subscribe` method:
- * 
+ *
  *     const fromObs = require('callbag-from-obs');
  *     const observe = require('callbag-observe');
- *    
+ *
  *     const subscribable = {
  *       subscribe: (observer) => {
  *         let i = 0;
@@ -34,7 +34,7 @@
  *     };
  *
  *     const source = fromObs(subscribable);
- * 
+ *
  *     observe(x => console.log(x))(source); // 0
  *                                           // 1
  *                                           // 2
@@ -47,7 +47,8 @@ const fromObs = observable => (start, sink) => {
   let dispose;
   sink(0, t => {
     if (t === 2 && dispose) {
-      dispose();
+      if (dispose.unsubscribe) dispose.unsubscribe();
+      else dispose();
     }
   });
   dispose = observable.subscribe({
