@@ -1,6 +1,6 @@
 {
   "name": "callbag-from-obs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Convert an observable to a callbag listenable source",
   "repository": {
     "type": "git",
