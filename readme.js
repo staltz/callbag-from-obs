@@ -42,6 +42,8 @@
  *                                           // ...
  */
 
+const $$observable = require('symbol-observable').default;
+
 const fromObs = observable => (start, sink) => {
   if (start !== 0) return;
   let dispose;
@@ -51,6 +53,7 @@ const fromObs = observable => (start, sink) => {
       else dispose();
     }
   });
+  observable = observable[$$observable] ? observable[$$observable]() : observable;
   dispose = observable.subscribe({
     next: x => sink(1, x),
     error: e => sink(2, e),

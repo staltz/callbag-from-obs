@@ -17,5 +17,8 @@
   ],
   "devDependencies": {
     "tape": "^4.8.0"
+  },
+  "dependencies": {
+    "symbol-observable": "^1.2.0"
   }
 }
